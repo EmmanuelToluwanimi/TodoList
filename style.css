@@ -1,0 +1,8 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-image: linear-gradient(rgba(35, 48, 83, 0.6), rgba(13, 11, 20, 0.7)), url(piotr-chrobot-6oUsyeYXgTg-unsplash.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
