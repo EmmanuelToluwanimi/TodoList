@@ -6,3 +6,27 @@ body {
     background-attachment: fixed;
     background-position: center;
 }
+
+.div1 {
+    /* text-align: center; */
+    font-size: 22px;
+}
+
+h2 {
+    background: linear-gradient(rgba(103, 106, 117, 0.5), rgba(81, 77, 94, 0.5));
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .inp{
+    height: 50px;
+} */
+
+input[type=checkbox] {
+    width: 50px;
+    height: 30px;
+}
