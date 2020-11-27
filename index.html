@@ -31,22 +31,22 @@
         </div>
 
         <div class="input-group mb-3 shadow">
-            <input type="text" class="form-control" placeholder="e.g : Build a webpage" aria-describedby="basic-addon2">
+            <input autofocus type="text" class="inp form-control" placeholder="e.g : Build a webpage"
+                aria-describedby="basic-addon2">
             <button class="btn btn-primary py-0  input-group-append">Create</button>
         </div>
 
         <hr class="bg-white">
 
-        <div class="container w-75 lists p-0 shadow">
+        <div class="container w-75 lists p-0 shadow-lg">
             <h2 class="rounded text-center py-1">
                 Lists
             </h2>
             <div class="clr text-muted text-center">No items yet</div>
-            <div class="todo px-3 border-bottom pb-1">
-                <span class="task flex-fill">Build a website</span>
-                <input type="checkbox" class="inp">
-                <button class="btn btn-danger far fa-trash-alt"></button> 
+            <div class="appr">
+
             </div>
+
 
         </div>
 
@@ -72,3 +72,33 @@
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- <script src="script.js"></script> -->
+
+<script>
+    $(document).ready(function () {
+        let array_list = [];
+        // let x = 0;
+
+        //function to get input values and sends it into an array
+        $(document).on('click', '.btn-primary', function () {
+
+            let inp_value = $('.inp').val();
+            array_list.push(inp_value);
+            console.log(array_list);
+            $('.inp').val('');
+
+            let y = '';
+            for (items of array_list) {
+                y += `<div class="todo px-3 border-bottom mt-1 pb-1">
+                <span class="task flex-fill">${items}</span>
+                <input type="checkbox" class="inp">
+                <button class="btn btn-danger far fa-trash-alt"></button>
+            </div>`
+            }
+            $('.appr').html(y);
+            $('.clr').hide();
+        })
+
+
+    })
+
+</script>
