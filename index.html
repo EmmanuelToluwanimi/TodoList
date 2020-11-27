@@ -98,6 +98,18 @@
             $('.clr').hide();
         })
 
+        //function to delete specific task in DOM and array
+        $(document).on('click', '.btn-danger', function () {
+
+            let z = $(this).closest('.todo').index();
+            console.log(z);
+
+            array_list.splice(z, 1);
+            console.log(array_list);
+
+            $(this).closest('.todo').remove();
+        })
+
 
     })
 
