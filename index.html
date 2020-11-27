@@ -90,7 +90,7 @@
             for (items of array_list) {
                 y += `<div class="todo px-3 border-bottom mt-1 pb-1">
                 <span class="task flex-fill">${items}</span>
-                <input type="checkbox" class="inp">
+                <input type="checkbox">
                 <button class="btn btn-danger far fa-trash-alt"></button>
             </div>`
             }
@@ -110,6 +110,10 @@
             $(this).closest('.todo').remove();
         })
 
+        //function that mutes tasks when checked
+        $(document).on('click', '[type="checkbox"]', function () {
+            $(this).closest('.todo').find('.task').toggleClass('text-muted');
+        })
 
     })
 
