@@ -48,6 +48,8 @@
             </div>
 
 
+
+
         </div>
 
 
@@ -95,7 +97,9 @@
             </div>`
             }
             $('.appr').html(y);
+            
             $('.clr').hide();
+
         })
 
         //function to delete specific task in DOM and array
@@ -108,6 +112,12 @@
             console.log(array_list);
 
             $(this).closest('.todo').remove();
+
+            if ($('.appr').children().length == 0) {
+                $('.clr').show();
+            } else {
+                $('.clr').hide();
+            }
         })
 
         //function that mutes tasks when checked
