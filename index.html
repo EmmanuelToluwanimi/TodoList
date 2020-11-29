@@ -31,7 +31,7 @@
         </div>
 
         <div class="input-group mb-3 shadow">
-            <input autofocus type="text" class="inp form-control" placeholder="e.g : Build a webpage"
+            <input required autofocus type="text" class="inp form-control" placeholder="e.g : Build a webpage"
                 aria-describedby="basic-addon2">
             <button class="btn btn-primary py-0  input-group-append">Create</button>
         </div>
@@ -83,9 +83,13 @@
         $(document).on('click', '.btn-primary', function () {
 
             let inp_value = $('.inp').val();
-            array_list.push(inp_value);
-            console.log(array_list);
-            $('.inp').val('');
+            if (inp_value == '') {
+                alert('Fill in gap')
+            } else {
+                array_list.push(inp_value);
+                console.log(array_list);
+                $('.inp').val('');
+            }
 
             let y = '';
             for (items of array_list) {
@@ -130,7 +134,7 @@
             $(this).closest('.div1').find('.todo').remove();
             $('.clr').show();
             console.log(array_list);
-            
+
         })
 
     })
