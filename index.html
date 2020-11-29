@@ -46,9 +46,9 @@
             <div class="appr">
 
             </div>
-            
+
         </div>
-        
+
         <button class="btn btn-warning text-center">CLEAR ITEMS</button>
 
 
@@ -122,6 +122,15 @@
         //function that mutes tasks when checked
         $(document).on('click', '[type="checkbox"]', function () {
             $(this).closest('.todo').find('.task').toggleClass('text-muted');
+        })
+
+        //function that set the array to empty and clears the task
+        $(document).on('click', '.btn-warning', function () {
+            array_list = [];
+            $(this).closest('.div1').find('.todo').remove();
+            $('.clr').show();
+            console.log(array_list);
+            
         })
 
     })
