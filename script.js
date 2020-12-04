@@ -14,20 +14,38 @@ $(document).ready(function () {
             $('.inp').val('');
         }
 
-        let y = '';
-        for (items of array_list) {
-            y += `<div class="todo px-3 border-bottom mt-1 pb-1">
-                <span class="task flex-fill">${items}</span>
-                <input type="checkbox">
-                <button class="btn btn-danger far fa-trash-alt"></button>
-            </div>`
-        }
-        $('.appr').html(y);
 
         $('.clr').hide();
 
+        store();
+
     })
 
+    let store = () => {
+        let str = JSON.stringify(array_list);
+        localStorage.setItem('myArray', str);
+
+        display();
+    }
+    let display = () => {
+        let str = localStorage.getItem('myArray');
+        str = JSON.parse(str);
+        let y = '';
+        for (items of str) {
+            y += `<div class="todo px-3 border-bottom mt-1 pb-1">
+            <span class="task flex-fill">${items}</span>
+            <input type="checkbox">
+            <button class="btn btn-danger far fa-trash-alt"></button>
+        </div>`
+        }
+        $('.appr').html(y);
+        
+        array_list = str;
+
+    }
+    display();
+
+    //function to allow additon of items with Enter button
     $(document).keypress(function (e) {
         if (e.which == 13) {
             let inp_value = $('.inp').val();
