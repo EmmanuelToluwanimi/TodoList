@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 
     //function to get input values and sends it into an array
-    $(document).on('click', '.btn-primary', function () {
+    $(document).on('click', '.btn-primary','13', function () {
 
         let inp_value = $('.inp').val();
         if (inp_value == '') {
