@@ -27,9 +27,11 @@ $(document).ready(function () {
 
         display();
     }
+
     let display = () => {
         let str = localStorage.getItem('myArray');
         str = JSON.parse(str);
+
         let y = '';
         for (items of str) {
             y += `<div class="todo px-3 border-bottom mt-1 pb-1">
@@ -38,38 +40,46 @@ $(document).ready(function () {
             <button class="btn btn-danger far fa-trash-alt"></button>
         </div>`
         }
-        $('.appr').html(y);
-        
         array_list = str;
+        // console.log(array_list);
 
+        if (array_list.length == 0) {
+            $('.clr').show();
+        }
+        else {
+            $('.clr').hide();
+        }
+
+        $('.appr').html(y);
+        clre();
     }
     display();
 
     //function to allow additon of items with Enter button
-    $(document).keypress(function (e) {
-        if (e.which == 13) {
-            let inp_value = $('.inp').val();
-            if (inp_value == '') {
-                alert('Fill in gap')
-            } else {
-                array_list.push(inp_value);
-                // console.log(array_list);
-                $('.inp').val('');
-            }
+    // $(document).keypress(function (e) {
+    //     if (e.which == 13) {
+    //         let inp_value = $('.inp').val();
+    //         if (inp_value == '') {
+    //             alert('Fill in gap')
+    //         } else {
+    //             array_list.push(inp_value);
+    //             // console.log(array_list);
+    //             $('.inp').val('');
+    //         }
 
-            let y = '';
-            for (items of array_list) {
-                y += `<div class="todo px-3 border-bottom mt-1 pb-1">
-                    <span class="task flex-fill">${items}</span>
-                    <input type="checkbox">
-                    <button class="btn btn-danger far fa-trash-alt"></button>
-                </div>`
-            }
-            $('.appr').html(y);
+    //         let y = '';
+    //         for (items of array_list) {
+    //             y += `<div class="todo px-3 border-bottom mt-1 pb-1">
+    //                 <span class="task flex-fill">${items}</span>
+    //                 <input type="checkbox">
+    //                 <button class="btn btn-danger far fa-trash-alt"></button>
+    //             </div>`
+    //         }
+    //         $('.appr').html(y);
 
-            $('.clr').hide();
-        }
-    })
+    //         $('.clr').hide();
+    //     }
+    // })
 
     //function to delete specific task in DOM and array
     $(document).on('click', '.btn-danger', function () {
@@ -95,12 +105,21 @@ $(document).ready(function () {
     })
 
     //function that set the array to empty and clears the task
-    $(document).on('click', '.btn-warning', function () {
-        array_list = [];
-        $(this).closest('.div1').find('.todo').remove();
-        $('.clr').show();
+    function clre() {
+        $('.btn-warning').click(function () {
+            let str = localStorage.clear();
+            array_list = [];
+            str = localStorage.setItem('myArray', JSON.stringify(array_list));
+            str = array_list;
+            $(this).closest('.div1').find('.todo').remove();
+            if (array_list.length == 0) {
+                $('.clr').show();
+            }
+            else {
+                $('.clr').hide();
+            }
+        })
         // console.log(array_list);
-
-    })
+    }
 
 })
