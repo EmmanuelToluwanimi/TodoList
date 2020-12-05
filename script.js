@@ -20,6 +20,25 @@ $(document).ready(function () {
         store();
 
     })
+    
+    // function to allow additon of items with Enter button
+    $(document).keypress(function (e) {
+        if (e.which == 13) {
+            let inp_value = $('.inp').val();
+            if (inp_value == '') {
+                alert('Fill in gap')
+            } else {
+                array_list.push(inp_value);
+                // console.log(array_list);
+                $('.inp').val('');
+            }
+    
+    
+            $('.clr').hide();
+    
+            store();
+        }
+    })
 
     let store = () => {
         let str = JSON.stringify(array_list);
@@ -55,31 +74,7 @@ $(document).ready(function () {
     }
     display();
 
-    //function to allow additon of items with Enter button
-    // $(document).keypress(function (e) {
-    //     if (e.which == 13) {
-    //         let inp_value = $('.inp').val();
-    //         if (inp_value == '') {
-    //             alert('Fill in gap')
-    //         } else {
-    //             array_list.push(inp_value);
-    //             // console.log(array_list);
-    //             $('.inp').val('');
-    //         }
 
-    //         let y = '';
-    //         for (items of array_list) {
-    //             y += `<div class="todo px-3 border-bottom mt-1 pb-1">
-    //                 <span class="task flex-fill">${items}</span>
-    //                 <input type="checkbox">
-    //                 <button class="btn btn-danger far fa-trash-alt"></button>
-    //             </div>`
-    //         }
-    //         $('.appr').html(y);
-
-    //         $('.clr').hide();
-    //     }
-    // })
 
     //function to delete specific task in DOM and array
     $(document).on('click', '.btn-danger', function () {
