@@ -83,7 +83,7 @@ $(document).ready(function () {
         // console.log(z);
 
         array_list.splice(z, 1);
-        console.log(array_list);
+        // console.log(array_list);
         
         let str = localStorage.getItem('myArray');
         str = JSON.parse(str);
