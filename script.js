@@ -7,7 +7,7 @@ $(document).ready(function () {
 
         let inp_value = $('.inp').val();
         if (inp_value == '') {
-            alert('Fill in gap')
+            $('.input-group').effect('shake');
         } else {
             array_list.push(inp_value);
             // console.log(array_list);
@@ -20,22 +20,22 @@ $(document).ready(function () {
         store();
 
     })
-    
+
     // function to allow additon of items with Enter button
     $(document).keypress(function (e) {
         if (e.which == 13) {
             let inp_value = $('.inp').val();
             if (inp_value == '') {
-                alert('Fill in gap')
+                $('.input-group').effect('shake');
             } else {
                 array_list.push(inp_value);
                 // console.log(array_list);
                 $('.inp').val('');
             }
-    
-    
+
+
             $('.clr').hide();
-    
+
             store();
         }
     })
@@ -84,7 +84,7 @@ $(document).ready(function () {
 
         array_list.splice(z, 1);
         // console.log(array_list);
-        
+
         let str = localStorage.getItem('myArray');
         str = JSON.parse(str);
         str.splice(z, 1);
