@@ -53,8 +53,8 @@ $(document).ready(function () {
 
         let y = '';
         for (items of str) {
-            y += `<div class="todo px-3 border-bottom mt-1 pb-1">
-            <span class="task flex-fill">${items}</span>
+            y += `<div class="todo px-3 border-bottom mt-1 pb-1 animate__animated animate__slideInLeft">
+            <span class="task flex-fill ">${items}</span>
             <input type="checkbox">
             <button class="btn btn-danger far fa-trash-alt"></button>
         </div>`
@@ -90,7 +90,7 @@ $(document).ready(function () {
         str.splice(z, 1);
         str = localStorage.setItem('myArray', JSON.stringify(array_list));
 
-
+        
         $(this).closest('.todo').remove();
 
         if ($('.appr').children().length == 0) {
